@@ -27,7 +27,7 @@ namespace LINQ
             new Product() {          
             Id = 4, Name = "Blender",
                 Category = "Köögimasinad",
-                Price = 55, Amount = 1 },
+                Price = 49.99, Amount = 1 },
             new Product() {          
             Id = 5, Name = "Sprite",
                 Category = "Joogid",
