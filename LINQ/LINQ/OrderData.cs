@@ -6,7 +6,50 @@ using System.Threading.Tasks;
 
 namespace LINQ
 {
-    internal class OrderData
+    public class OrderData
     {
+        public static readonly List<Order> orders = new List<Order>()
+        {
+             new Order() {Id = 1,
+         ClientId = 1,
+        ProductId = 8,
+        Amount = 2},
+             new Order() {Id = 2,
+         ClientId = 2,
+        ProductId = 3,
+        Amount = 1},
+             new Order() {Id = 3,
+         ClientId = 3,
+        ProductId = 4,
+        Amount = 1},
+             new Order() {Id = 4,
+         ClientId = 3,
+        ProductId = 6,
+        Amount = 4},
+             new Order() {Id = 5,
+         ClientId = 5,
+        ProductId = 10,
+        Amount = 1},
+             new Order() {Id = 6,
+         ClientId = 5,
+        ProductId = 9,
+        Amount = 1},
+             new Order() {Id = 7,
+         ClientId = 1,
+        ProductId = 7,
+        Amount = 3},
+             new Order() {Id = 8,
+         ClientId = 2,
+        ProductId = 1,
+        Amount = 2},
+             new Order() {Id = 9,
+         ClientId = 4,
+        ProductId = 2,
+        Amount = 2},
+             new Order() {Id = 10,
+         ClientId = 4,
+        ProductId = 5,
+        Amount = 2},
+        };
     }
 }
