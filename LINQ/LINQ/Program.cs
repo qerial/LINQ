@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace LINQ
 {
@@ -14,7 +15,7 @@ namespace LINQ
             Console.WriteLine("5.Võtimine tingimuse alusel");
             Console.WriteLine("6.Üksiku elemendi leidmine");
             Console.WriteLine("7.Statistika");
-            Console.WriteLine("8.");
+            Console.WriteLine("8.Tingimuslik kontroll");
             Console.WriteLine("\n");
 
             int Choice = int.Parse(Console.ReadLine());
@@ -50,7 +51,7 @@ namespace LINQ
                     break;
 
                 case 8:
-
+                    TingimuslikKontroll();
                     break;
                 default:
                     Console.WriteLine("ERROR");
@@ -123,16 +124,39 @@ namespace LINQ
         public static void üksikuelemendileidmine()
         {
             Console.Clear();
-            Console.WriteLine();
+            Console.WriteLine("Leia klient ID-ga 3");
             string leidmine = ClientData.clients
                 .FirstOrDefault(x => x.Id == 3).Name;
-            
-            Console.WriteLine("The first long name is '{0}'.", leidmine);
+
+            Console.WriteLine("klient ID-ga kolm on " + leidmine);
 
         }
         public static void Statistika()
         {
             Console.Clear();
+            var sumladu = ProductData.products.Sum(x => x.Price);
+            var sumamount = ProductData.products.Average(x => x.Amount);
+            double x = sumladu * sumamount;
+            Console.WriteLine("Laoväärtus:" + x + "eurot");
+            var minladu = ProductData.products.Min(x => x.Price);
+            Console.WriteLine("Kõige odavam toode:" + minladu + "eurot");
+            Console.WriteLine("Mitu tooodet kuulub kategooriasse?");
+            var mitu = ProductData.products
+                .Count(x => x.Category == "Liha");
+            Console.WriteLine("Liha kategooriasse kuulub " + mitu + " toodet");            
+
+        }
+        public static void TingimuslikKontroll()
+        {
+            Console.Clear();
+            Console.WriteLine("Kas kõik on laos olemas?");
+            bool laosolemas = ProductData.products
+                .All(x => x.Amount > 0);
+
+            {
+                Console.WriteLine(laosolemas);
+            }
+
         }
     }
 }
